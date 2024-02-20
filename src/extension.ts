@@ -2,7 +2,7 @@ import * as vscode from "vscode";
 import { config } from "./config";
 import * as utils from "./utils";
 
-const REFRESH_COMMAND = "solidity-developer-studio.sds.reload";
+const REFRESH_COMMAND = "vscode-extension-starter.reload";
 
 export function activate(context: vscode.ExtensionContext) {
   let disposable = vscode.commands.registerCommand(
