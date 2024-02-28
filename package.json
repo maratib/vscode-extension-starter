@@ -41,12 +41,12 @@
         "vscode-extension-starter.hover": {
           "type": "string",
           "default": "hover on hay",
-          "description": "Whether to enable/disable Solidity hover."
+          "description": "Whether to enable/disable hover."
         },
-        "vscode-extension-starter.abc": {
+        "vscode-extension-starter.showCommon": {
           "type": "boolean",
-          "default": false,
-          "description": "Whether to enable/disable Solidity decoration"
+          "default": true,
+          "description": "Whether to enable/disable decoration"
         }
       }
     }

@@ -1,31 +1,26 @@
-import * as vscode from "vscode";
-import { config } from "./config";
+import * as vs from "vscode";
 import * as utils from "./utils";
 
-const REFRESH_COMMAND = "vscode-extension-starter.reload";
+const console = utils;
 
-export function activate(context: vscode.ExtensionContext) {
-  let disposable = vscode.commands.registerCommand(
+export function activate(context: vs.ExtensionContext) {
+  console.log("Activated");
+
+  let disposable = vs.commands.registerCommand(
     "vscode-extension-starter.helloWorld",
     () => {
-      vscode.window.showInformationMessage(
+      vs.window.showInformationMessage(
         "Hello World from vscode-extension-starter!"
       );
-      console.log(config.hover());
-      console.log(config.abc());
+      console.log(utils.getConfig("hover"));
+      console.log(utils.getConfig("showCommon"));
     }
   );
 
-  let refresh = vscode.commands.registerCommand(REFRESH_COMMAND, () => {
-    // console.log("Reloading");
-    vscode.commands.executeCommand("workbench.action.reloadWindow");
-  });
-
   context.subscriptions.push(disposable);
-  context.subscriptions.push(refresh);
 } // end activate
 
-utils.watchForExtensionChanges(REFRESH_COMMAND);
+utils.watchForExtensionChanges();
 
 // This method is called when your extension is deactivated
 export function deactivate() {}
